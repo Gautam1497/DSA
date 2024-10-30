@@ -77,6 +77,7 @@ public class LinkedList1 {
             return Integer.MIN_VALUE;
         }
         else if(size==1){
+            size--;
             int val=tail.data;
             head=tail=null;
             return val;
