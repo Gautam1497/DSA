@@ -7,9 +7,9 @@ public class LinkedList1 {
             this.next=null;
         }
     }
-    public static Node head;
-    public static Node tail;
-    public static int size;
+    public static Node head; //Create head
+    public static Node tail;  // create tail
+    public static int size; // keep  track of size
     public void addFirst(int data){
         Node nn=new Node(data);  //Create new Node nn
         if(head==null){
@@ -24,12 +24,12 @@ public class LinkedList1 {
     public void addLast(int data){
         Node nn=new Node(data);
         if(head==null){
-            head=tail=nn;
+            head=tail=nn; //If head is empty then point head and tail to nn
             size++;
             return;
         }
-        tail.next=nn;
-        tail=nn;
+        tail.next=nn;  //Point tail to nn
+        tail=nn;  //assign tail to nn
         size++;
     }
     public void print(){
@@ -48,7 +48,7 @@ public class LinkedList1 {
         }
         int i=0;
         Node nn=new Node(data);
-        Node temp=head;
+        Node temp=head;  // create a temporary node temp to iterate till n-1 element
         while(i++<n-1){
             temp=temp.next;
         }
@@ -102,9 +102,9 @@ public class LinkedList1 {
         ll.print();
         System.out.println(size);
         ll.addMiddle(2,5);
-        ll.removeFirst();
+        System.out.println(ll.removeFirst()+" is removed");
         ll.print();
-        ll.removeLast();
+        System.out.println(ll.removeLast()+" is removed");
         ll.print();
         System.out.println(size);
     }
