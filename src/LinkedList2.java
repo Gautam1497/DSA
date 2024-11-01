@@ -42,6 +42,17 @@ public class LinkedList2 {
         }
         System.out.println("null");
     }
+    public int recSearch(int key) {
+        return helper(head, key);  // Start the recursive search from the head node
+    }
+    private int helper(Node head, int key) {
+        if (head == null) return -1;  // Base case: if we've reached the end of the list and haven't found the key
+        if (head.data == key) return 0;  // Check if the current node contains the key
+        int i = helper(head.next, key);  // Recursively search in the remaining list
+        if (i == -1) return -1; // If the key was not found in the remainder of the list, return -1
+        return i + 1;  // If the key is found in the remaining list, return the current index by adding 1
+    }
+
 
     public static void main(String[] args) {
         LinkedList2 ll=new LinkedList2();
@@ -49,7 +60,9 @@ public class LinkedList2 {
         ll.addFirst(2);
         ll.addFirst(1);
         ll.print();
-        System.out.println(ll.findData(3));
+        System.out.println(ll.findData(3)); // Iterative search
         System.out.println(ll.findData(5));
+        System.out.println(ll.recSearch(3));// Recursive search
+        System.out.println(ll.recSearch(10));
     }
 }
